@@ -12,8 +12,9 @@ const cloudinary = require("../middleware/cloudinary");
 router.post('/', upload.single("file"), async (request, response) => {
 
     try {
-        // Upload image to cloudinary
-        const result = await cloudinary.uploader.upload(req.file.path);
+        // Upload image to cloudinary 
+        console.log(request)
+        const result = await cloudinary.uploader.upload(request.body.file.path);
     
         const newLocation = {
         location: request.body.location,
